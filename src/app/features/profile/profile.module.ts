@@ -7,10 +7,13 @@ import { LayoutModule } from '@core/layout/layout.module';
 import { StoreModule } from '@ngrx/store';
 import { ProfileDetailComponent } from './profile-detail';
 import { getProfileReducer } from './store/profile.reducers';
+import { UserMapperService } from '@features/profile/user-mapper.service';
+import { ProfileListComponent } from '@features/profile/profile-list/profile-list.component';
 
 @NgModule({
     declarations: [
-        ProfileDetailComponent
+        ProfileDetailComponent,
+        ProfileListComponent
     ],
     entryComponents: [
         ProfileDetailComponent
@@ -25,6 +28,9 @@ import { getProfileReducer } from './store/profile.reducers';
         MatDividerModule,
         MatListModule,
         StoreModule.forFeature('profile', getProfileReducer)
+    ],
+    providers: [
+        UserMapperService
     ]
 })
 export class ProfileModule { }
